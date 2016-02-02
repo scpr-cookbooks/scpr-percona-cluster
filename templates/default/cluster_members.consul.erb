@@ -1,0 +1,5 @@
+# Set wsrep_cluster_address.
+# THIS FILE IS MANAGED BY CHEF AND CONSUL. DO NOT EDIT BY HAND.
+
+[mysqld]
+wsrep_cluster_address = gcomm://{{range $index, $service := service "mysql-<%= node.scpr_percona_cluster.cluster_name %>"}}{{if ne $index 0}},{{end}}{{.Address}}{{end}}
