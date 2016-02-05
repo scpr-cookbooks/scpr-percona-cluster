@@ -18,10 +18,13 @@ default['percona']['server']['role'] = 'cluster'
 default["percona"]["apt"]["key"] = "1C4CBDCDCD2EFD2A"
 default["percona"]["apt"]["keyserver"] = "hkp://keys.gnupg.net"
 
-default['percona']['cluster']['wsrep_cluster_name'] = node.scpr_percona_cluster.cluster_name
-
 default['percona']['server']['root_password'] = nil
 default['percona']['server']['datadir'] = node.scpr_percona_cluster.data_dir
 
 default['percona']['server']['max_connections'] = 200
 default['percona']['server']['innodb_buffer_pool_size'] = node.scpr_percona_cluster.innodb_buffer_size
+
+default['percona']['cluster']['wsrep_cluster_name'] = node.scpr_percona_cluster.cluster_name
+default['percona']['cluster']['wsrep_sst_method'] = "xtrabackup-v2"
+default['percona']['cluster']['wsrep_sst_auth'] = "root:"
+default['percona']['cluster']['wsrep_sst_receive_address'] = node.ipaddress
