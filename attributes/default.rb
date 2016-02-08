@@ -1,6 +1,9 @@
 default['scpr_percona_cluster']['cluster_name'] = "scpr"
 default['scpr_percona_cluster']['data_dir'] = "/data/mysql"
 
+default['scpr_percona_cluster']['databag'] = 'public_keys'
+default['scpr_percona_cluster']['databag_item'] = 'db_backups'
+
 default['scpr_percona_cluster']['innodb_buffer_percent'] = 0.7
 default['scpr_percona_cluster']['innodb_buffer_size'] = (node.memory.total.to_i * node.scpr_percona_cluster.innodb_buffer_percent).to_i.to_s + "K"
 
@@ -22,6 +25,7 @@ default['percona']['server']['root_password'] = nil
 default['percona']['server']['datadir'] = node.scpr_percona_cluster.data_dir
 
 default['percona']['server']['skip_name_resolve'] = true
+default["percona"]["server"]["innodb_log_file_size"] = '32M'
 
 default['percona']['server']['max_connections'] = 200
 default['percona']['server']['innodb_buffer_pool_size'] = node.scpr_percona_cluster.innodb_buffer_size

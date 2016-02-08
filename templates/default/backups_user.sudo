@@ -1,0 +1,2 @@
+# access to innobackex for the db_backups user
+db_backups ALL=(root) NOPASSWD:/usr/bin/innobackupex
