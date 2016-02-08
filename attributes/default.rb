@@ -21,6 +21,8 @@ default["percona"]["apt"]["keyserver"] = "hkp://keys.gnupg.net"
 default['percona']['server']['root_password'] = nil
 default['percona']['server']['datadir'] = node.scpr_percona_cluster.data_dir
 
+default['percona']['server']['skip_name_resolve'] = true
+
 default['percona']['server']['max_connections'] = 200
 default['percona']['server']['innodb_buffer_pool_size'] = node.scpr_percona_cluster.innodb_buffer_size
 
