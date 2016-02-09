@@ -22,7 +22,7 @@ file "#{home}/.ssh/authorized_keys" do
   action    :create
   user      user
   mode      0600
-  content   keys_doc ? keys_doc.keys.join("\n") : ""
+  content   keys_doc ? (keys_doc['public_keys']||[]).join("\n") : ""
 end
 
 template "/etc/sudoers.d/10-db_backups" do

@@ -4,7 +4,8 @@ maintainer_email 'erichardson@scpr.org'
 license 'mit'
 description 'Installs/Configures a Percona XtraDB Cluster'
 long_description 'Installs/Configures a Percona XtraDB Cluster'
-version '0.1.3'
+version '0.1.4'
 
 depends "percona"
 depends 'scpr-consul', "~> 0.2"
+depends 'sudo'

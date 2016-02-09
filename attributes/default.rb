@@ -34,3 +34,10 @@ default['percona']['cluster']['wsrep_cluster_name'] = node.scpr_percona_cluster.
 default['percona']['cluster']['wsrep_sst_method'] = "xtrabackup-v2"
 default['percona']['cluster']['wsrep_sst_auth'] = "root:"
 default['percona']['cluster']['wsrep_sst_receive_address'] = node.ipaddress
+
+#----------
+
+# FIXME: This should probably go in scpr-base
+include_attribute "sudo"
+
+default['authorization']['sudo']['include_sudoers_d'] = true
