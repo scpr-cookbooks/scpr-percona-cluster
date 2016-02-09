@@ -60,6 +60,16 @@ end
 include_recipe 'percona::cluster'
 include_recipe 'percona::toolkit'
 
+# -- logstash-forwarder -- #
+
+log_forward "percona-cluster-#{node.scpr_percona_cluster.cluster_name}" do
+  paths ["#{node.scpr_percona_cluster.data_dir}/#{node.name}.err"]
+  fields({
+    type: "pxc",
+    cluster: node.scpr_percona_cluster.cluster_name,
+  })
+end
+
 # -- Set up a Consul service -- #
 
 consul_service_def "mysql-#{node.scpr_percona_cluster.cluster_name}" do
