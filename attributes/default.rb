@@ -4,7 +4,7 @@ default['scpr_percona_cluster']['data_dir'] = "/data/mysql"
 default['scpr_percona_cluster']['databag'] = 'public_keys'
 default['scpr_percona_cluster']['databag_item'] = 'db_backups'
 
-default['scpr_percona_cluster']['innodb_buffer_percent'] = 0.7
+default['scpr_percona_cluster']['innodb_buffer_percent'] = 0.6
 default['scpr_percona_cluster']['innodb_buffer_size'] = (node.memory.total.to_i * node.scpr_percona_cluster.innodb_buffer_percent).to_i.to_s + "K"
 
 #----------
